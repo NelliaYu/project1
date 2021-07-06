@@ -1,0 +1,156 @@
+package com.project.wf.employee.memberfarm;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Scanner;
+
+/**
+ * 직원, 관리자가 전체회원의 정보를 검색할 수 있는 클래스
+ */
+public class Employee_2Member_2MemberSearch {
+	//직원] 2. 회원 농장 조회 - 2.2 회원 정보 검색
+	
+		private static Scanner scan;
+		private static String DATA;
+		
+		
+		static {
+			scan = new Scanner(System.in);
+			DATA = "dat\\1. MemberList.dat";
+		}
+		
+		/**
+		 * 직원, 관리자가 전체회원의 정보를 확인 후, 원하는 회원의 정보만 검색할 수 있게 하는 메소드
+		 */
+		public void MemberSearch() {
+			
+			boolean loop = true;
+			while(loop) {
+				
+				list();
+				System.out.println();
+				
+				// 뒤로가기 버튼
+				System.out.println("1.회원 선택\t\t\t\t0.뒤로가기");
+				System.out.print("번호 입력: ");
+				String back = scan.nextLine();
+				
+				boolean loop2 = true;
+				//조회할 회원 번호
+				while(loop2) {
+				
+					if(back.equals("1")) {
+						System.out.print("조회할 회원 번호: ");
+						String member = scan.nextLine();
+						membercheck(member.toUpperCase());
+						
+						System.out.println("1.회원 선택\t\t\t\t0.뒤로가기");
+						System.out.print("번호 입력: ");
+						back = scan.nextLine();
+						
+					} else if (back.equals("0")) {
+						System.out.println("[종료]");
+						loop2 = false;
+					}
+				}//while
+				
+				if(back.equals("0")) {
+					loop = false;
+				}
+				
+			}//while
+
+		
+		}
+		
+		/**
+		 * 다음으로 화면이 구현되기 전, 일시정지를 해주는 메소드
+		 */
+		private void pause() {
+			System.out.println("엔터를 누르시면 다음으로 이동됩니다.");
+			scan.nextLine();
+			
+		}
+		
+		/**
+		 * 직원, 관리자가 전체회원의 회원 정보를 확인할 수 있는 메소드
+		 */
+		private void list() {
+			//회원 정보 목록
+				
+				try {
+
+					BufferedReader reader = new BufferedReader(new FileReader(DATA));
+					
+					String line = "";
+
+					System.out.println("[회원 정보 목록]");
+					System.out.println("[회원 번호]  [회원 이름]\t [회원 전화번호]\t   [회원 생년월일]\t   [회원 주소]\t\t[은행 계좌번호]\t\t[계약기간]");
+					
+					
+						while ((line = reader.readLine()) != null) {//MemberList
+
+							String[] temp = line.split("★");
+							
+											System.out.printf("  %s\t     %s\t %s\t     %s\t     %s\t   %s\t%s\n"
+												, temp[0]
+												, temp[1]
+												, temp[3]
+												, temp[2]
+												, temp[4]
+												, temp[5]
+												, temp[6] + " ~ " + temp[7]
+												); 		
+										
+									}
+									reader.close();
+									
+
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+
+		}//메소드
+		
+		/**
+		 * 직원, 관리자가 원하는 회원 번호를 입력하여 해당 회원의 정보만을 검색할 수 있는 메소드
+		 * @param member 조회할 회원 번호
+		 */
+		private void membercheck(String member) {
+			//입력한 회원번호만 조회
+			try {
+				
+				BufferedReader reader = new BufferedReader(new FileReader(DATA));
+				String line = "";
+
+				System.out.println("[회원 번호]  [회원 이름]\t [회원 전화번호]\t   [회원 생년월일]\t     [회원 주소]\t\t\t[은행 계좌번호]\t\t[계약기간]");
+				
+					while ((line = reader.readLine()) != null) {//MemberList
+						String[] temp = line.split("★");
+						
+						if(member.equals(temp[0])) {
+							
+							System.out.printf("  %s\t     %s\t %s\t     %s\t     %s\t%s\t%s\n"
+									, temp[0]
+									, temp[1]
+									, temp[3]
+									, temp[2]
+									, temp[4]
+									, temp[5]
+									, temp[6] + " ~ " + temp[7]
+									); 		
+							}
+					}
+					reader.close();
+					
+				
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			
+			
+			
+		}//메소드 membercheck
+
+
+}
