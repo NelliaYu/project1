@@ -1,5 +1,5 @@
 # 파일 입출력 기반의 데이터 처리 자바 콘솔 프로젝트
-**주말농장 운영프로그램(java)**
+## 주말농장 운영프로그램(java)
 
 **요약 |**
 고객과 직원, 관리자가 주말 농장 서비스를 이용할 수 있게 돕는 프로그램
@@ -49,7 +49,8 @@
 ***
 
 **구현화면 |**
-[회원]
+
+### [회원]
 
 ![0-0  로그인 화면](https://user-images.githubusercontent.com/76515187/129557191-c5bb08e5-a4c4-4113-9841-da856510893e.PNG)
 ![1-1-1  내 농장 조회](https://user-images.githubusercontent.com/76515187/129557231-35ab7970-aecd-41f2-afd1-13b677b2e11a.png)
@@ -59,7 +60,7 @@
 ![1-1-6  농장계약서조회](https://user-images.githubusercontent.com/76515187/129557239-f3173942-dc64-418a-a66a-43cbfe8575e7.png)
 ![1-1-6  농장계약서조회_실행창](https://user-images.githubusercontent.com/76515187/129557240-fe8d5769-721d-4ac9-8364-958a20c9ed79.png)
 
-[직원, 관리자]
+### [직원, 관리자]
 
 ![7-0-1 직원로그인](https://user-images.githubusercontent.com/76515187/129557243-a3b51061-d0c7-4beb-8a30-263baf0c39db.png)
 ![8-0-2 관리자로그인](https://user-images.githubusercontent.com/76515187/129557266-d0c2df43-1ff2-42eb-a447-9c7527741abb.png)
